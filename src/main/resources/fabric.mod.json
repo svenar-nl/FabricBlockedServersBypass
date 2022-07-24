@@ -1,0 +1,39 @@
+{
+  "schemaVersion": 1,
+  "id": "bsb",
+  "version": "${version}",
+
+  "name": "MC Blacklist Bypass",
+  "description": "Don't let Mojang decide what will be blocked or not, play however you want.",
+  "authors": [
+    "svenar",
+    "maxi"
+  ],
+  "contact": {
+    "homepage": "https://svenar.nl",
+    "sources": "https://github.com/svenar-nl/FabricBlockedServersBypass"
+  },
+
+  "license": "MIT",
+  "icon": "assets/bsb/icon.png",
+
+  "environment": "*",
+  "entrypoints": {
+    "main": [
+      "nl.svenar.noblocklist.BlockedServersBypass"
+    ]
+  },
+  "mixins": [
+    "bsb.mixins.json"
+  ],
+
+  "depends": {
+    "fabricloader": ">=0.14.6",
+    "fabric": "*",
+    "minecraft": "~1.19",
+    "java": ">=17"
+  },
+  "suggests": {
+    "another-mod": "*"
+  }
+}
