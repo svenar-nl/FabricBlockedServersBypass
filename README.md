@@ -19,7 +19,6 @@ You can find the output jar in the `build/libs` directory.
 # Installing
 To install and use the mod you need to have following:
 * Fabric
-* FabricAPI
 * mc-blacklist-bypass-X.X.X.jar
 
 ## License
