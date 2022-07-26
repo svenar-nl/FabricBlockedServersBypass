@@ -10,5 +10,6 @@ public class BlockedServersBypass implements ModInitializer {
 	@Override
 	public void onInitialize() {
 		LOGGER.info("Blocked servers bypass ready!");
+		LOGGER.info("- Enjoy playing on all servers.");
 	}
 }
