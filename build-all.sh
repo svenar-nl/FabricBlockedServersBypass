@@ -31,6 +31,8 @@ versions=(
     "17 1.17 1.17+build.13 0.14.22 0.46.1+1.17"
 )
 
+GRADLE_PROPERTIES="gradle.properties"
+
 download_jdk() {
     local url=$1
     local dest_dir=$2
@@ -56,8 +58,23 @@ check_and_download_jdk() {
     fi
 }
 
+read_property() {
+    local file=$1
+    local key=$2
+    grep "^${key}=" "$file" | cut -d'=' -f2 | tr -d ' '
+}
+
+default_java_version=$(read_property "$GRADLE_PROPERTIES" "java_version")
+
+echo "Preparing Java versions..."
+for version_info in "${versions[@]}"; do
+    read -r java_version _ <<< "$version_info"
+    check_and_download_jdk "$java_version"
+done
+
 echo "Cleaning up..."
-./gradlew clean
+JAVA_HOME="$JDK_DIR/jdk-$default_java_version"
+./gradlew clean -Dorg.gradle.java.home="$JAVA_HOME"
 rm -rf dist
 mkdir dist
 
@@ -65,7 +82,6 @@ echo "Building..."
 for version_info in "${versions[@]}"; do
     read -r java_version minecraft_version yarn_mappings loader_version fabric_version <<< "$version_info"
 
-    check_and_download_jdk "$java_version"
     JAVA_HOME="$JDK_DIR/jdk-$java_version"
 
     echo "> building for $minecraft_version on java $java_version"
