@@ -1,10 +1,10 @@
 {
   "schemaVersion": 1,
-  "id": "bsb",
+  "id": "csam",
   "version": "${version}",
 
-  "name": "MC Blacklist Bypass",
-  "description": "This mods stops the client from checking for blocked servers, which allows you, the player, to join any server that has been previously blocked.",
+  "name": "Custom Server Access",
+  "description": "This mod modifies server filter behavior. Use in accordance with Mojang's EULA.",
   "authors": [
     "svenar",
     "maxi"
@@ -15,16 +15,16 @@
   },
 
   "license": "MIT",
-  "icon": "assets/bsb/icon.png",
+  "icon": "assets/csam/icon.png",
 
   "environment": "*",
   "entrypoints": {
     "main": [
-      "nl.svenar.noblocklist.BlockedServersBypass"
+      "nl.svenar.customserveraccess.CustomServerAccessMod"
     ]
   },
   "mixins": [
-    "bsb.mixins.json"
+    "csam.mixins.json"
   ],
 
   "depends": {

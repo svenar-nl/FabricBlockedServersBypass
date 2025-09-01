@@ -1,12 +1,12 @@
 {
   "required": true,
   "minVersion": "0.8",
-  "package": "nl.svenar.noblocklist.mixin",
+  "package": "nl.svenar.customserveraccess.mixin",
   "compatibilityLevel": "JAVA_17",
   "mixins": [
   ],
   "client": [
-    "OverwriteBlocklist"
+    "ServerFilterOverrideMixin"
   ],
   "injectors": {
     "defaultRequire": 1
