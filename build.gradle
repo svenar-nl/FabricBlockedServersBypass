@@ -1,5 +1,5 @@
 plugins {
-	id 'fabric-loom' version '1.11-SNAPSHOT'
+	id 'fabric-loom' version '1.13.3'
 	id 'maven-publish'
 }
 
@@ -8,6 +8,10 @@ def javaVersion = project.hasProperty('java_version') ? project.java_version.toI
 java {
     sourceCompatibility = JavaVersion.toVersion(javaVersion)
     targetCompatibility = JavaVersion.toVersion(javaVersion)
+}
+
+loom {
+	enableModProvidedJavadoc = false
 }
 
 base {
